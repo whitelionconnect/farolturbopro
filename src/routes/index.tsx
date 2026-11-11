@@ -11,9 +11,11 @@ import pricing from "@/assets/pricing.jpg.asset.json";
 import ebook from "@/assets/ebook.png.asset.json";
 import glow from "@/assets/glow.jpg.asset.json";
 import restored from "@/assets/restored.jpg.asset.json";
+import bonusChecklist from "@/assets/bonus-checklist.jpg.asset.json";
+import bonusPlanilha from "@/assets/bonus-planilha.jpg.asset.json";
+import bonusWhatsapp from "@/assets/bonus-whatsapp.jpg.asset.json";
 
-// Troque pelo link real do checkout (Hotmart, Kiwify, etc.)
-const CHECKOUT_URL = "#oferta";
+const CHECKOUT_URL = "https://pay.cakto.com.br/3br6uum_1309312";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,8 +32,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Cta({ children = "QUERO APRENDER AGORA!", href = "#oferta", className = "" }: { children?: React.ReactNode; href?: string; className?: string }) {
+  const external = href.startsWith("http");
   return (
-    <a href={href} className={`btn-cta px-7 py-4 text-base ${className}`}>
+    <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={`btn-cta px-7 py-4 text-base ${className}`}>
       {children} <ArrowRight className="h-5 w-5" />
     </a>
   );
@@ -58,6 +61,35 @@ function Index() {
     { n: "01", t: "Recuperar", d: "Aprenda a avaliar a lente, identificar os tipos de desgaste e executar as etapas de lixamento e polimento.", img: pro.url },
     { n: "02", t: "Proteger", d: "Entenda a importância da proteção final, dos produtos adequados e do respeito às instruções e ao tempo de cura do fabricante.", img: restored.url },
     { n: "03", t: "Monetizar", d: "Aprenda a calcular os custos, definir preços e apresentar seu trabalho para potenciais clientes.", img: pricing.url },
+  ];
+  const bonuses = [
+    {
+      n: "01",
+      t: "Checklist de Restauração em 12 Etapas",
+      highlight: "Mais organização. Menos etapas esquecidas.",
+      d: "Um material de consulta rápida para acompanhar as etapas de cada restauração, desde a avaliação inicial da lente até a conferência do acabamento final.",
+      items: ["Sequência de trabalho organizada.", "Conferência dos materiais necessários.", "Acompanhamento das etapas de lixamento e polimento.", "Verificação da proteção final e do acabamento."],
+      closing: "Tenha um roteiro visual para consultar durante a execução dos serviços.",
+      img: bonusChecklist.url,
+    },
+    {
+      n: "02",
+      t: "Planilha de Custo por Serviço",
+      highlight: "Saiba quanto custa cada restauração.",
+      d: "Uma planilha editável para registrar seus gastos e entender melhor os custos envolvidos em cada serviço.",
+      items: ["Registro dos materiais utilizados.", "Cálculo do custo dos produtos.", "Controle de custos adicionais.", "Registro do tempo de trabalho.", "Comparação entre custo e preço cobrado.", "Estimativa do resultado por serviço."],
+      closing: "Tenha mais clareza para definir seus preços e acompanhar seus custos.",
+      img: bonusPlanilha.url,
+    },
+    {
+      n: "03",
+      t: "Mensagens Prontas para WhatsApp",
+      highlight: "Saiba o que responder ao seu cliente.",
+      d: "Uma coleção de modelos editáveis de mensagens para ajudar você a apresentar seu serviço, conversar com interessados e enviar orçamentos.",
+      items: ["Primeira resposta ao interessado.", "Solicitação de fotos do veículo.", "Apresentação do serviço.", "Envio de orçamento.", "Respostas a objeções de preço.", "Acompanhamento de interessados.", "Confirmação de agendamento."],
+      closing: "Tenha modelos de comunicação para atender com mais clareza e profissionalismo.",
+      img: bonusWhatsapp.url,
+    },
   ];
   const learn = [
     { icon: Search, t: "Diagnóstico da lente", d: "Identifique oxidação, amarelamento, riscos, umidade interna e situações em que a restauração não é indicada." },
@@ -194,6 +226,43 @@ function Index() {
             <div className="relative overflow-hidden rounded-xl border border-border">
               <img src={polish.url} alt="Polimento de farol" className="h-full min-h-48 w-full object-cover" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BÔNUS */}
+      <section className="border-y border-border bg-secondary py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionTitle eyebrow="Bônus inclusos" title="E não é só o guia. Você também recebe 3 ferramentas para facilitar sua jornada!">
+            <p>Além de aprender o processo de restauração, você recebe materiais práticos para organizar seus serviços, controlar seus custos e conversar com seus primeiros clientes.</p>
+          </SectionTitle>
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+            {bonuses.map((b, i) => (
+              <div key={b.n} className="animate-rise overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-colors hover:border-primary/40" style={{ animationDelay: `${i * 120}ms` }}>
+                <img src={b.img} alt={b.t} className="w-full object-contain" />
+                <div className="p-6 sm:p-7">
+                  <span className="font-display text-sm font-extrabold tracking-widest text-primary">BÔNUS {b.n}</span>
+                  <h3 className="mt-2 text-xl font-extrabold uppercase leading-tight">{b.t}</h3>
+                  <p className="mt-2 font-display font-bold text-primary">{b.highlight}</p>
+                  <p className="mt-3 text-sm text-muted-foreground">{b.d}</p>
+                  <ul className="mt-5 space-y-2.5">
+                    {b.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm">
+                        <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success"><Check className="h-3.5 w-3.5" /></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 border-t border-border pt-4 text-sm font-medium text-muted-foreground">{b.closing}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-14 max-w-3xl rounded-2xl border border-primary/40 bg-card p-8 text-center shadow-glow">
+            <h3 className="text-xl font-extrabold uppercase leading-tight sm:text-2xl">Você aprende a restaurar e ainda recebe ferramentas para colocar o conhecimento em prática.</h3>
+            <p className="mt-3 text-muted-foreground">São quatro materiais digitais em uma única oferta: o guia principal e três bônus complementares.</p>
+            <p className="mt-6 font-display text-5xl font-extrabold text-primary">R$ 19,90</p>
+            <Cta href={CHECKOUT_URL} className="mt-6 w-full sm:w-auto">QUERO RECEBER MEU KIT COMPLETO!</Cta>
           </div>
         </div>
       </section>
