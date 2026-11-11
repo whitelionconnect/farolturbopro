@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Cta({ children = "QUERO APRENDER AGORA!", href = "#oferta", className = "" }: { children?: React.ReactNode; href?: string; className?: string }) {
+function Cta({ children = "QUERO APRENDER AGORA!", href = CHECKOUT_URL, className = "" }: { children?: React.ReactNode; href?: string; className?: string }) {
   const external = href.startsWith("http");
   return (
     <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={`btn-cta px-7 py-4 text-base ${className}`}>
@@ -109,7 +109,7 @@ function Index() {
           <a href="#" className="truncate font-display text-lg font-extrabold tracking-tight sm:text-xl">
             FAROL <span className="text-primary">TURBO PRO</span>
           </a>
-          <a href="#oferta" className="btn-cta shrink-0 px-4 py-2 text-xs sm:px-5 sm:text-sm">QUERO APRENDER</a>
+          <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-cta shrink-0 px-4 py-2 text-xs sm:px-5 sm:text-sm">QUERO APRENDER</a>
         </div>
       </header>
 
@@ -134,7 +134,7 @@ function Index() {
               ))}
             </ul>
             <div className="mt-8 flex flex-col items-start gap-3">
-              <Cta className="w-full sm:w-auto" />
+              <Cta href={CHECKOUT_URL} className="w-full sm:w-auto" />
               <p className="text-sm text-muted-foreground">Ebook digital + 3 bônus | <strong className="font-display text-foreground">R$ 19,90</strong></p>
             </div>
           </div>
@@ -296,7 +296,7 @@ function Index() {
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-2xl font-extrabold uppercase leading-tight sm:text-4xl">Comece a entender o processo <span className="text-primary">hoje.</span></h2>
           <p className="mt-4 text-muted-foreground">Ebook digital + 3 bônus por apenas R$ 19,90.</p>
-          <Cta className="mt-8" />
+          <Cta href={CHECKOUT_URL} className="mt-8" />
         </div>
       </section>
 
