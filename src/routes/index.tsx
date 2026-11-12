@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 import {
   ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, Gift, Lock, Megaphone, Package,
   PenTool, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Aprenda a restaurar faróis e transformar essa habilidade em renda. Ebook + 3 bônus por R$ 19,90." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: hero.url },
+      { name: "twitter:image", content: hero.url },
     ],
   }),
   component: Index,
@@ -304,6 +307,10 @@ function Index() {
         <p className="font-display font-extrabold text-foreground">FAROL <span className="text-primary">TURBO PRO</span></p>
         <p className="mt-2">Imagens ilustrativas. Resultados dependem da condição da lente e da aplicação correta do processo.</p>
         <p className="mt-1">© {new Date().getFullYear()} Farol Turbo Pro. Todos os direitos reservados.</p>
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-4">
+          <Link to="/privacidade" className="text-primary underline">Política de privacidade</Link>
+          <Button variant="link" size="sm" onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}>Configurações de cookies</Button>
+        </div>
       </footer>
     </div>
   );

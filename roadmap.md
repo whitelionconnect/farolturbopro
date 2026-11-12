@@ -1,0 +1,4 @@
+- [x] Install the requested Meta PageView Pixel with the agreed regional consent banner.
+- [x] Add privacy disclosure and permanent cookie settings.
+- [x] Verify PageView transmission, refusal, withdrawal and duplicate prevention (one real Meta request returned 200; five tests passed).
+- [ ] Publish and confirm receipt in Meta Events Manager — requires publication and access to the user's Meta account.

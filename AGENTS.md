@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Use the shared consent module for every advertising send; the regional banner and global opt-outs must govern Pixel loading and withdrawal.
+- Initialize the ID-only Meta Pixel once per document from an effect, with one landing-page PageView; do not use an ungated noscript beacon because it bypasses consent.
