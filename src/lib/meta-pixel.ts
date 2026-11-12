@@ -1,6 +1,6 @@
 import { canTrack, onConsentChange } from "./consent";
 
-export const PIXEL_ID = "259717535174766";
+export const PIXEL_ID = "1640915633805657";
 type Pixel = ((...args: unknown[]) => void) & {
   callMethod?: (...args: unknown[]) => void;
   queue: unknown[][];

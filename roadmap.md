@@ -1,5 +1,5 @@
-- [x] Replace the previous Meta Pixel with 259717535174766 throughout the landing page, preserving the agreed regional consent banner.
+- [x] Install the uploaded Pixel 1640915633805657 in place of the previous Pixel, preserving the agreed regional consent banner and excluding the private access token and ungated noscript beacon.
 - [x] Add privacy disclosure and permanent cookie settings.
-- [x] Verify replacement Pixel 259717535174766 initialization, one PageView call, consent blocking and withdrawal (five tests passed; browser SDK interception passed).
+- [ ] Verify uploaded Pixel 1640915633805657 initialization, one PageView, consent blocking and withdrawal.
 - [ ] Confirm real transmission and receipt for the replacement Pixel — real SDK produced no observed event request in the sandbox; Meta account is not connected, so receipt and dataset restrictions remain unverified.
 - [ ] Publish and confirm receipt in Meta Events Manager — requires publication and access to the user's Meta account.
