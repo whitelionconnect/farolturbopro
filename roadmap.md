@@ -1,4 +1,5 @@
-- [x] Install the requested Meta PageView Pixel with the agreed regional consent banner.
+- [x] Replace the previous Meta Pixel with 259717535174766 throughout the landing page, preserving the agreed regional consent banner.
 - [x] Add privacy disclosure and permanent cookie settings.
-- [x] Verify PageView transmission, refusal, withdrawal and duplicate prevention (one real Meta request returned 200; five tests passed).
+- [x] Verify replacement Pixel 259717535174766 initialization, one PageView call, consent blocking and withdrawal (five tests passed; browser SDK interception passed).
+- [ ] Confirm real transmission and receipt for the replacement Pixel — real SDK produced no observed event request in the sandbox; Meta account is not connected, so receipt and dataset restrictions remain unverified.
 - [ ] Publish and confirm receipt in Meta Events Manager — requires publication and access to the user's Meta account.
