@@ -20,13 +20,13 @@ describe("requested Meta Pixel", () => {
     stop();
   });
 
-  it("uses Pixel 4648044568763976 and sends only one PageView after acceptance", async () => {
+  it("uses Pixel 1770089784096794 and sends only one PageView after acceptance", async () => {
     const { saveChoices } = await import("@/lib/consent");
     const { startMetaPixel } = await import("@/lib/meta-pixel");
     saveChoices({ advertising: "granted" });
     const stop = startMetaPixel();
     await vi.waitFor(() => expect(window.fbq?.queue.some((args) => args[0] === "init")).toBe(true));
-    expect(window.fbq?.queue.find((args) => args[0] === "init")).toEqual(["init", "4648044568763976", {}, { agent: "lovable" }]);
+    expect(window.fbq?.queue.find((args) => args[0] === "init")).toEqual(["init", "1770089784096794", {}, { agent: "lovable" }]);
     saveChoices({ advertising: "denied" });
     await vi.waitFor(() => expect(window.fbq?.queue.at(-1)).toEqual(["consent", "revoke"]));
     saveChoices({ advertising: "granted" });
