@@ -6,6 +6,7 @@ describe("requested Meta Pixel", () => {
     localStorage.clear();
     delete window.fbq;
     delete window._fbq;
+    delete window.__farolMetaPixelState;
     document.head.querySelectorAll('script[src*="fbevents"]').forEach((script) => script.remove());
     Object.defineProperty(navigator, "globalPrivacyControl", { configurable: true, value: false });
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, text: async () => `h=${location.hostname}\nloc=CA` }));
@@ -19,15 +20,15 @@ describe("requested Meta Pixel", () => {
     stop();
   });
 
-  it("uses Pixel 1640915633805657 and sends only one PageView after acceptance", async () => {
+  it("uses Pixel 4648044568763976 and sends only one PageView after acceptance", async () => {
     const { saveChoices } = await import("@/lib/consent");
     const { startMetaPixel } = await import("@/lib/meta-pixel");
     saveChoices({ advertising: "granted" });
     const stop = startMetaPixel();
     await vi.waitFor(() => expect(window.fbq?.queue.some((args) => args[0] === "init")).toBe(true));
-    expect(window.fbq?.queue.find((args) => args[0] === "init")).toEqual(["init", "1640915633805657", {}, { agent: "lovable" }]);
+    expect(window.fbq?.queue.find((args) => args[0] === "init")).toEqual(["init", "4648044568763976", {}, { agent: "lovable" }]);
     saveChoices({ advertising: "denied" });
-    expect(window.fbq?.queue.at(-1)).toEqual(["consent", "revoke"]);
+    await vi.waitFor(() => expect(window.fbq?.queue.at(-1)).toEqual(["consent", "revoke"]));
     saveChoices({ advertising: "granted" });
     await new Promise((resolve) => setTimeout(resolve, 10));
     expect(window.fbq?.queue.filter((args) => args[0] === "track" && args[1] === "PageView")).toHaveLength(1);

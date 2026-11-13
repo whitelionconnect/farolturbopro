@@ -1,5 +1,5 @@
-- [x] Install the uploaded Pixel 1640915633805657 in place of the previous Pixel, preserving the agreed regional consent banner and excluding the private access token and ungated noscript beacon.
+- [x] Replace the landing Pixel with requested Pixel 4648044568763976, preserving the agreed regional consent banner and excluding the private access token and ungated noscript beacon.
 - [x] Add privacy disclosure and permanent cookie settings.
-- [x] Verify uploaded Pixel 1640915633805657 initialization, one PageView, consent blocking and withdrawal — four Pixel tests and one navigation test passed; real browser confirmed no SDK before acceptance, SDK readiness after acceptance, saved advertising withdrawal, and five unchanged Cakto checkout links.
+- [x] Verify replacement Pixel 4648044568763976 initialization, one PageView, consent blocking and withdrawal — five tests passed; browser confirmed SDK readiness after acceptance, blocking before acceptance, withdrawal and five unchanged Cakto checkout links; build OK.
 - [ ] Confirm real transmission and receipt for the replacement Pixel — real SDK produced no observed event request in the sandbox; Meta account is not connected, so receipt and dataset restrictions remain unverified.
 - [ ] Publish and confirm receipt in Meta Events Manager — requires publication and access to the user's Meta account.
