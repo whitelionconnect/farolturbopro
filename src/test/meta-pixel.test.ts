@@ -27,12 +27,16 @@ describe("requested Meta Pixel", () => {
     const stop = startMetaPixel();
     await vi.waitFor(() => expect(window.fbq?.queue.some((args) => args[0] === "init")).toBe(true));
     expect(window.fbq?.queue.find((args) => args[0] === "init")).toEqual(["init", "1770089784096794", {}, { agent: "lovable" }]);
+    stop();
+    const stopRemounted = startMetaPixel();
+    await vi.waitFor(() => expect(window.__farolMetaPixelState?.consent).toBe("granted"));
     saveChoices({ advertising: "denied" });
     await vi.waitFor(() => expect(window.fbq?.queue.at(-1)).toEqual(["consent", "revoke"]));
     saveChoices({ advertising: "granted" });
     await new Promise((resolve) => setTimeout(resolve, 10));
     expect(window.fbq?.queue.filter((args) => args[0] === "track" && args[1] === "PageView")).toHaveLength(1);
-    stop();
+    expect(window.fbq?.queue.filter((args) => args[0] === "init")).toHaveLength(1);
+    stopRemounted();
   });
 
   it("analytics acceptance alone does not allow advertising", async () => {
@@ -46,5 +50,18 @@ describe("requested Meta Pixel", () => {
     saveChoices({ advertising: "granted" });
     Object.defineProperty(navigator, "globalPrivacyControl", { configurable: true, value: true });
     expect(await canTrack("advertising")).toBe(false);
+  });
+
+  it("does not initialize the Pixel when GPC overrides acceptance", async () => {
+    const { saveChoices } = await import("@/lib/consent");
+    const { startMetaPixel } = await import("@/lib/meta-pixel");
+    saveChoices({ advertising: "granted" });
+    Object.defineProperty(navigator, "globalPrivacyControl", { configurable: true, value: true });
+    const stop = startMetaPixel();
+    await vi.waitFor(() => expect(window.__farolMetaPixelState?.consent).toBe("denied"));
+    expect(window.fbq).toBeUndefined();
+    expect(window.__farolMetaPixelState?.initialized).toBe(false);
+    expect(window.__farolMetaPixelState?.pageViewed).toBe(false);
+    stop();
   });
 });
