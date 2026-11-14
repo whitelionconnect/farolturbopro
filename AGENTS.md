@@ -31,4 +31,3 @@ use the editor.
 
 - Use the shared consent module for every advertising send; the regional banner and global opt-outs must govern Pixel loading and withdrawal.
 - Initialize the ID-only Meta Pixel once per document from an effect, with one landing-page PageView; do not use an ungated noscript beacon because it bypasses consent.
-- Reference uploaded landing media through Lovable Assets JSON pointers and keep original binaries out of the repository, so product imagery remains exact and the repository stays lightweight.

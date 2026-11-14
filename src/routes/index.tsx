@@ -4,18 +4,17 @@ import {
   ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, Gift, Lock, Megaphone, Package,
   PenTool, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
 } from "lucide-react";
-import hero from "@/assets/resultado-restauracao.jpg.asset.json";
-import professional from "@/assets/profissional-restauracao.jpg.asset.json";
+import hero from "@/assets/hero.jpg.asset.json";
+import compare from "@/assets/compare.jpg.asset.json";
 import pro from "@/assets/pro.jpg.asset.json";
 import polish from "@/assets/polish.jpg.asset.json";
-import pricing from "@/assets/planilha-conteudo-real.png.asset.json";
-import guideMaterials from "@/assets/guia-materiais-conteudo-real.png.asset.json";
+import pricing from "@/assets/pricing.jpg.asset.json";
 import ebook from "@/assets/ebook.png.asset.json";
 import glow from "@/assets/glow.jpg.asset.json";
 import restored from "@/assets/restored.jpg.asset.json";
-import bonusChecklist from "@/assets/checklist-capa-real.png.asset.json";
-import bonusPlanilha from "@/assets/planilha-capa-real.png.asset.json";
-import bonusWhatsapp from "@/assets/whatsapp-capa-real.png.asset.json";
+import bonusChecklist from "@/assets/bonus-checklist.jpg.asset.json";
+import bonusPlanilha from "@/assets/bonus-planilha.jpg.asset.json";
+import bonusWhatsapp from "@/assets/bonus-whatsapp.jpg.asset.json";
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/3br6uum_1309312";
 
@@ -28,6 +27,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Aprenda a restaurar faróis e transformar essa habilidade em renda. Ebook + 3 bônus por R$ 19,90." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: hero.url },
+      { name: "twitter:image", content: hero.url },
     ],
   }),
   component: Index,
@@ -60,9 +61,9 @@ function Index() {
     { icon: BadgeDollarSign, t: "Insegurança comercial", d: "Não sabe quanto cobrar ou como apresentar o serviço para um cliente." },
   ];
   const steps = [
-    { n: "01", t: "Recuperar", d: "Aprenda a avaliar a lente, identificar os tipos de desgaste e executar as etapas de lixamento e polimento.", img: polish.url, alt: "Polimento de uma lente automotiva", document: false },
-    { n: "02", t: "Proteger", d: "Entenda a importância da proteção final, dos produtos adequados e do respeito às instruções e ao tempo de cura do fabricante.", img: restored.url, alt: "Lente restaurada com acabamento transparente", document: false },
-    { n: "03", t: "Monetizar", d: "Aprenda a calcular os custos, definir preços e apresentar seu trabalho para potenciais clientes.", img: pricing.url, alt: "Conteúdo real da Planilha de Custo por Serviço", document: true },
+    { n: "01", t: "Recuperar", d: "Aprenda a avaliar a lente, identificar os tipos de desgaste e executar as etapas de lixamento e polimento.", img: pro.url },
+    { n: "02", t: "Proteger", d: "Entenda a importância da proteção final, dos produtos adequados e do respeito às instruções e ao tempo de cura do fabricante.", img: restored.url },
+    { n: "03", t: "Monetizar", d: "Aprenda a calcular os custos, definir preços e apresentar seu trabalho para potenciais clientes.", img: pricing.url },
   ];
   const bonuses = [
     {
@@ -142,7 +143,7 @@ function Index() {
           </div>
           <div className="relative animate-rise [animation-delay:150ms]">
             <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
-              <img src={hero.url} alt="Comparação de farol amarelado e farol restaurado" className="aspect-video w-full object-contain" />
+              <img src={hero.url} alt="Comparação de farol amarelado e farol restaurado" className="aspect-[4/3] w-full object-cover" />
             </div>
             <span className="absolute left-4 top-4 rounded-md bg-destructive px-3 py-1 font-display text-xs font-bold">ANTES</span>
             <span className="absolute right-4 top-4 rounded-md bg-success px-3 py-1 font-display text-xs font-bold text-primary-foreground">DEPOIS</span>
@@ -158,7 +159,7 @@ function Index() {
             <p>Um farol amarelado, fosco ou oxidado compromete a aparência do veículo e pode afetar a iluminação. Mas tentar recuperar uma lente sem conhecer o processo pode gerar marcas, manchas e acabamentos irregulares.</p>
           </SectionTitle>
           <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-            <img src={pro.url} alt="Lixamento úmido de uma lente com proteção nas partes próximas" loading="lazy" className="w-full rounded-2xl border border-border object-cover shadow-soft" />
+            <img src={compare.url} alt="Lente oxidada ao lado de lente restaurada" className="w-full rounded-2xl border border-border object-cover shadow-soft" />
             <div className="grid gap-4 sm:grid-cols-2">
               {problems.map(({ icon: I, t, d }) => (
                 <div key={t} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
@@ -175,7 +176,7 @@ function Index() {
       {/* OPORTUNIDADE */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 lg:grid-cols-2">
-          <img src={professional.url} alt="Profissional polindo um farol em uma oficina de estética automotiva" loading="lazy" className="w-full rounded-2xl border border-border object-cover shadow-soft" />
+          <img src={pro.url} alt="Profissional lixando um farol automotivo" className="w-full rounded-2xl border border-border object-cover shadow-soft" />
           <div>
             <span className="eyebrow">A oportunidade</span>
             <h2 className="mt-4 text-2xl font-extrabold uppercase leading-tight sm:text-4xl">Uma habilidade prática pode se transformar em uma nova oportunidade.</h2>
@@ -198,7 +199,7 @@ function Index() {
             <div className="absolute left-[16%] right-[16%] top-[5.5rem] hidden h-px bg-gradient-to-r from-primary/0 via-primary to-primary/0 md:block" />
             {steps.map((s) => (
               <div key={s.n} className="relative overflow-hidden rounded-2xl border border-border bg-card">
-                <img src={s.img} alt={s.alt} loading="lazy" className={s.document ? "h-80 w-full bg-muted object-contain" : "h-80 w-full object-cover"} />
+                <img src={s.img} alt={s.t} className="h-44 w-full object-cover opacity-80" />
                 <div className="p-6">
                   <span className="font-display text-sm font-extrabold tracking-widest text-primary">ETAPA {s.n}</span>
                   <h3 className="mt-1 text-2xl font-extrabold uppercase">{s.t}</h3>
@@ -226,7 +227,7 @@ function Index() {
               </div>
             ))}
             <div className="relative overflow-hidden rounded-xl border border-border">
-              <img src={guideMaterials.url} alt="Página real do guia: materiais, ferramentas e produtos essenciais" loading="lazy" className="h-full min-h-48 w-full object-contain" />
+              <img src={polish.url} alt="Polimento de farol" className="h-full min-h-48 w-full object-cover" />
             </div>
           </div>
         </div>
@@ -241,7 +242,7 @@ function Index() {
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {bonuses.map((b, i) => (
               <div key={b.n} className="animate-rise overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-colors hover:border-primary/40" style={{ animationDelay: `${i * 120}ms` }}>
-                <img src={b.img} alt={`Capa real: ${b.t}`} loading="lazy" className="aspect-[2/3] w-full object-contain" />
+                <img src={b.img} alt={b.t} className="w-full object-contain" />
                 <div className="p-6 sm:p-7">
                   <span className="font-display text-sm font-extrabold tracking-widest text-primary">BÔNUS {b.n}</span>
                   <h3 className="mt-2 text-xl font-extrabold uppercase leading-tight">{b.t}</h3>
@@ -272,7 +273,7 @@ function Index() {
       {/* OFERTA */}
       <section id="oferta" className="scroll-mt-16 border-y border-border bg-secondary py-16 sm:py-24">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 lg:grid-cols-2">
-          <img src={ebook.url} alt="Ebook Farol Turbo Pro" loading="lazy" className="mx-auto w-full max-w-md rounded-2xl shadow-soft" />
+          <img src={ebook.url} alt="Ebook Farol Turbo Pro" className="mx-auto w-full max-w-md rounded-2xl shadow-soft" />
           <div className="rounded-2xl border border-primary/40 bg-card p-8 shadow-glow">
             <span className="eyebrow">Oferta</span>
             <h2 className="mt-4 text-2xl font-extrabold uppercase sm:text-3xl">Farol Turbo Pro</h2>
