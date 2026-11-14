@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { ProductPreview } from "@/components/product-preview/ProductPreview";
 import {
   ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, Gift, Lock, Megaphone, Package,
   PenTool, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
@@ -27,8 +28,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Aprenda a restaurar faróis e transformar essa habilidade em renda. Ebook + 3 bônus por R$ 19,90." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: hero.url },
-      { name: "twitter:image", content: hero.url },
     ],
   }),
   component: Index,
@@ -151,6 +150,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <ProductPreview />
 
       {/* PROBLEMA */}
       <section className="border-y border-border bg-secondary py-16 sm:py-24">
