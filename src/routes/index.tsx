@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, Gift, Lock, Megaphone, Package,
   PenTool, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
-  Mail, Zap, FolderDown,
+  Mail, Zap, FolderDown, CreditCard, Download, Rocket,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg.asset.json";
 import compare from "@/assets/compare.jpg.asset.json";
@@ -289,21 +289,38 @@ function Index() {
             </div>
             <Cta href={CHECKOUT_URL} className="mt-6 w-full">QUERO MEU ACESSO</Cta>
             <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground"><Lock className="h-3.5 w-3.5" /> Compra segura</p>
-            <div className="mt-6 rounded-xl border border-primary/30 bg-secondary/70 p-5 text-left">
-              <div className="flex items-center gap-2 font-bold text-foreground">
-                <Mail className="h-5 w-5 shrink-0 text-primary" />
-                <span>PRODUTO 100% DIGITAL</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ENTREGA DIGITAL */}
+      <section className="border-b border-border bg-background py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionTitle eyebrow="Acesso fácil e sem espera" title="📦 ENTREGA DIGITAL SIMPLES E RÁPIDA">
+            <p>Você não precisa esperar nenhum produto chegar à sua casa!</p>
+          </SectionTitle>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: CreditCard, n: "01", title: "Faça sua compra", description: "Conclua o pagamento com segurança." },
+              { icon: Mail, n: "02", title: "Receba seu acesso", description: "Após a confirmação do pagamento, você receberá um link para acessar os materiais pelo Google Drive." },
+              { icon: Download, n: "03", title: "Acesse seus arquivos", description: "Abra os links, visualize os materiais e faça o download dos arquivos disponibilizados." },
+              { icon: Rocket, n: "04", title: "Comece a aplicar", description: "Utilize os materiais e coloque seu conhecimento em prática!" },
+            ].map(({ icon: I, n, title, description }) => (
+              <div key={n} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary"><I className="h-6 w-6" /></span>
+                  <span className="font-display text-sm font-extrabold tracking-widest text-primary">ETAPA {n}</span>
+                </div>
+                <h3 className="mt-5 text-lg font-extrabold uppercase">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
               </div>
-              <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-                <p className="flex items-start gap-3">
-                  <Zap className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span>Após a confirmação do pagamento, você receberá o acesso aos materiais digitais por meio de um link do Google Drive.</span>
-                </p>
-                <p className="flex items-start gap-3">
-                  <FolderDown className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span>Todos os arquivos estarão disponíveis para acesso e download. Não enviamos produtos físicos.</span>
-                </p>
-              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-8 flex max-w-4xl items-start gap-4 rounded-2xl border border-primary/40 bg-secondary/70 p-6 sm:p-7">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary"><FolderDown className="h-6 w-6" /></span>
+            <div>
+              <h3 className="font-extrabold uppercase">Importante: produto 100% digital</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">A entrega é realizada exclusivamente por meio de links de acesso aos arquivos no Google Drive. Não há envio de produtos físicos.</p>
             </div>
           </div>
         </div>
