@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ProductPreview } from "@/components/product-preview/ProductPreview";
 import {
-  ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, Gift, Lock, Megaphone, Package,
-  PenTool, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
+  ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, CreditCard, FolderOpen, Gift, Inbox, Lock, Megaphone, Package,
+  PenTool, Rocket, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg.asset.json";
 import compare from "@/assets/compare.jpg.asset.json";
@@ -289,6 +289,36 @@ function Index() {
             </div>
             <Cta href={CHECKOUT_URL} className="mt-6 w-full">QUERO MEU ACESSO</Cta>
             <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground"><Lock className="h-3.5 w-3.5" /> Compra segura</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ENTREGA DIGITAL */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionTitle eyebrow="Entrega digital simples e rápida" title="Você não precisa esperar nenhum produto chegar à sua casa!" />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: CreditCard, t: "Faça sua compra", d: "Conclua o pagamento com segurança." },
+              { icon: Inbox, t: "Receba seu acesso", d: "Após a confirmação do pagamento, você receberá um link para acessar os materiais pelo Google Drive." },
+              { icon: FolderOpen, t: "Acesse seus arquivos", d: "Abra os links, visualize os materiais e faça o download dos arquivos disponibilizados." },
+              { icon: Rocket, t: "Comece a aplicar", d: "Utilize os materiais e coloque seu conhecimento em prática!" },
+            ].map(({ icon: I, t, d }, i) => (
+              <div key={t} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary"><I className="h-5 w-5" /></span>
+                  <span className="font-display text-sm font-bold text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="mt-4 font-bold uppercase">{t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-primary/40 bg-card p-6 text-center shadow-glow sm:p-8">
+            <p className="font-display font-extrabold uppercase text-primary">Importante</p>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              Este é um produto 100% digital. A entrega é realizada exclusivamente por meio de links de acesso aos arquivos no Google Drive. Não há envio de produtos físicos.
+            </p>
           </div>
         </div>
       </section>
