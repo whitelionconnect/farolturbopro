@@ -1,6 +1,7 @@
 
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ProductPreview } from "@/components/product-preview/ProductPreview";
 import {
   ArrowRight,
@@ -626,6 +627,16 @@ function Index() {
               </p>
             </div>
 
+            <div className="mt-5 flex items-start gap-3 rounded-xl border border-primary/40 bg-primary/5 p-4 text-left">
+              <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
+              <div>
+                <p className="text-sm font-extrabold uppercase">7 dias de garantia</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  Você tem até 7 dias após a compra para avaliar o material e solicitar o reembolso, conforme as condições da plataforma de pagamento.
+                </p>
+              </div>
+            </div>
+
             <Cta href={CHECKOUT_URL} className="mt-6 w-full">
               QUERO MEU ACESSO
             </Cta>
@@ -723,6 +734,71 @@ function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-b border-border bg-secondary py-16 sm:py-24">
+        <div className="mx-auto max-w-4xl px-4">
+          <SectionTitle
+            eyebrow="Tire suas dúvidas"
+            title="PERGUNTAS FREQUENTES"
+          >
+            <p>Confira as principais informações antes de adquirir o seu material.</p>
+          </SectionTitle>
+
+          <div className="mt-10 rounded-2xl border border-border bg-card px-5 sm:px-7">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="faq-1">
+                <AccordionTrigger className="text-primary hover:text-primary">O FAROL TURBO PRO serve para qualquer carro?</AccordionTrigger>
+                <AccordionContent>
+                  O conteúdo apresenta técnicas de restauração de faróis automotivos. A aplicação e os resultados dependem do tipo de lente, do material e do estado de conservação de cada farol.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-2">
+                <AccordionTrigger className="text-primary hover:text-primary">Preciso comprar ferramentas caras para começar?</AccordionTrigger>
+                <AccordionContent>
+                  Não necessariamente. O material apresenta ferramentas, produtos e itens utilizados no processo, ajudando você a conhecer o que precisa antes de organizar seu investimento.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-3">
+                <AccordionTrigger className="text-primary hover:text-primary">Quantas páginas tem o material?</AccordionTrigger>
+                <AccordionContent>
+                  O ebook principal possui 32 páginas. Além dele, você recebe três bônus digitais complementares: Checklist de Restauração, Planilha de Custo por Serviço e WhatsApp que Vende.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-4">
+                <AccordionTrigger className="text-primary hover:text-primary">Como recebo o produto depois da compra?</AccordionTrigger>
+                <AccordionContent>
+                  Após a confirmação do pagamento, você recebe as orientações e o link de acesso aos arquivos digitais pelo Google Drive.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-5">
+                <AccordionTrigger className="text-primary hover:text-primary">O conteúdo é indicado para iniciantes?</AccordionTrigger>
+                <AccordionContent>
+                  Sim. O material foi organizado para apresentar conhecimentos e etapas do processo de restauração de faróis, ajudando você a estudar e entender como colocar o conhecimento em prática.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-6">
+                <AccordionTrigger className="text-primary hover:text-primary">O produto inclui suporte ou acompanhamento pelo WhatsApp?</AccordionTrigger>
+                <AccordionContent>
+                  Não. O FAROL TURBO PRO é um conjunto de materiais digitais para estudo individual. A compra não inclui consultoria, acompanhamento ou suporte individual pelo WhatsApp.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-7">
+                <AccordionTrigger className="text-primary hover:text-primary">Como funciona a garantia de 7 dias?</AccordionTrigger>
+                <AccordionContent>
+                  Você tem até 7 dias após a compra para avaliar o material. Caso não fique satisfeito, poderá solicitar o reembolso dentro desse prazo, conforme as condições e os procedimentos da plataforma de pagamento.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <img
@@ -742,6 +818,18 @@ function Index() {
           <p className="mt-4 text-muted-foreground">
             Ebook digital + 3 bônus por apenas R$ 19,90.
           </p>
+
+          <div className="mx-auto mt-8 flex max-w-xl items-center gap-3 rounded-2xl border border-primary/40 bg-card/80 p-5 text-left">
+            <ShieldCheck className="h-8 w-8 shrink-0 text-primary" />
+            <div>
+              <h3 className="text-sm font-extrabold uppercase">
+                Sua compra está protegida
+              </h3>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                Você tem 7 dias após a compra para avaliar o FAROL TURBO PRO e solicitar o reembolso, conforme as condições da garantia.
+              </p>
+            </div>
+          </div>
 
           <Cta href={CHECKOUT_URL} className="mt-8" />
         </div>
