@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight, BadgeDollarSign, BookOpen, Check, CircleHelp, Gift, Lock, Megaphone, Package,
   PenTool, Search, ShieldCheck, ShieldOff, Sparkles, TriangleAlert, Wrench, XCircle,
+  Mail, Zap, FolderDown,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg.asset.json";
 import compare from "@/assets/compare.jpg.asset.json";
@@ -288,6 +289,22 @@ function Index() {
             </div>
             <Cta href={CHECKOUT_URL} className="mt-6 w-full">QUERO MEU ACESSO</Cta>
             <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground"><Lock className="h-3.5 w-3.5" /> Compra segura</p>
+            <div className="mt-6 rounded-xl border border-primary/30 bg-secondary/70 p-5 text-left">
+              <div className="flex items-center gap-2 font-bold text-foreground">
+                <Mail className="h-5 w-5 shrink-0 text-primary" />
+                <span>PRODUTO 100% DIGITAL</span>
+              </div>
+              <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+                <p className="flex items-start gap-3">
+                  <Zap className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span>Após a confirmação do pagamento, você receberá o acesso aos materiais digitais por meio de um link do Google Drive.</span>
+                </p>
+                <p className="flex items-start gap-3">
+                  <FolderDown className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span>Todos os arquivos estarão disponíveis para acesso e download. Não enviamos produtos físicos.</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
