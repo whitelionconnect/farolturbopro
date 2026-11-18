@@ -337,9 +337,6 @@ function Index() {
               DEPOIS
             </span>
 
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              Imagem ilustrativa.
-            </p>
           </div>
         </div>
       </section>
