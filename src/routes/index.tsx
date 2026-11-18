@@ -27,17 +27,17 @@ import {
   XCircle,
 } from "lucide-react";
 
-import hero from "@/assets/hero.jpg.asset.json";
-import compare from "@/assets/compare.jpg.asset.json";
-import pro from "@/assets/pro.jpg.asset.json";
-import polish from "@/assets/polish.jpg.asset.json";
-import pricing from "@/assets/pricing.jpg.asset.json";
-import ebook from "@/assets/ebook.png.asset.json";
-import glow from "@/assets/glow.jpg.asset.json";
-import restored from "@/assets/restored.jpg.asset.json";
-import bonusChecklist from "@/assets/bonus-checklist.jpg.asset.json";
-import bonusPlanilha from "@/assets/bonus-planilha.jpg.asset.json";
-import bonusWhatsapp from "@/assets/bonus-whatsapp.jpg.asset.json";
+import hero from "@/assets/hero.jpg";
+import compare from "@/assets/compare.jpg";
+import pro from "@/assets/pro.jpg";
+import polish from "@/assets/polish.jpg";
+import pricing from "@/assets/pricing.jpg";
+import ebook from "@/assets/ebook.png";
+import glow from "@/assets/glow.jpg";
+import restored from "@/assets/restored.jpg";
+import bonusChecklist from "@/assets/bonus-checklist.jpg";
+import bonusPlanilha from "@/assets/bonus-planilha.jpg";
+import bonusWhatsapp from "@/assets/bonus-whatsapp.jpg";
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/3br6uum_1309312";
 
@@ -61,8 +61,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: hero.url },
-      { name: "twitter:image", content: hero.url },
+      { property: "og:image", content: hero },
+      { name: "twitter:image", content: hero },
     ],
   }),
   component: Index,
@@ -143,19 +143,19 @@ function Index() {
       n: "01",
       t: "Recuperar",
       d: "Aprenda a avaliar a lente, identificar os tipos de desgaste e executar as etapas de lixamento e polimento.",
-      img: pro.url,
+      img: pro,
     },
     {
       n: "02",
       t: "Proteger",
       d: "Entenda a importância da proteção final, dos produtos adequados e do respeito às instruções e ao tempo de cura do fabricante.",
-      img: restored.url,
+      img: restored,
     },
     {
       n: "03",
       t: "Monetizar",
       d: "Aprenda a calcular os custos, definir preços e apresentar seu trabalho para potenciais clientes.",
-      img: pricing.url,
+      img: pricing,
     },
   ];
 
@@ -173,7 +173,7 @@ function Index() {
       ],
       closing:
         "Tenha um roteiro visual para consultar durante a execução dos serviços.",
-      img: bonusChecklist.url,
+      img: bonusChecklist,
     },
     {
       n: "02",
@@ -190,7 +190,7 @@ function Index() {
       ],
       closing:
         "Tenha mais clareza para definir seus preços e acompanhar seus custos.",
-      img: bonusPlanilha.url,
+      img: bonusPlanilha,
     },
     {
       n: "03",
@@ -208,7 +208,7 @@ function Index() {
       ],
       closing:
         "Tenha modelos de comunicação para atender com mais clareza e profissionalismo.",
-      img: bonusWhatsapp.url,
+      img: bonusWhatsapp,
     },
   ];
 
@@ -322,7 +322,7 @@ function Index() {
           <div className="relative animate-rise [animation-delay:150ms]">
             <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
               <img
-                src={hero.url}
+                src={hero}
                 alt="Comparação de farol amarelado e farol restaurado"
                 className="aspect-[4/3] w-full object-cover"
               />
@@ -360,7 +360,7 @@ function Index() {
 
           <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <img
-              src={compare.url}
+              src={compare}
               alt="Lente oxidada ao lado de lente restaurada"
               className="w-full rounded-2xl border border-border object-cover shadow-soft"
             />
@@ -385,7 +385,7 @@ function Index() {
       <section className="py-16 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 lg:grid-cols-2">
           <img
-            src={pro.url}
+            src={pro}
             alt="Profissional lixando um farol automotivo"
             className="w-full rounded-2xl border border-border object-cover shadow-soft"
           />
@@ -491,7 +491,7 @@ function Index() {
 
             <div className="relative overflow-hidden rounded-xl border border-border">
               <img
-                src={polish.url}
+                src={polish}
                 alt="Polimento de farol"
                 className="h-full min-h-48 w-full object-cover"
               />
@@ -589,7 +589,7 @@ function Index() {
       >
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 lg:grid-cols-2">
           <img
-            src={ebook.url}
+            src={ebook}
             alt="Ebook Farol Turbo Pro"
             className="mx-auto w-full max-w-md rounded-2xl shadow-soft"
           />
@@ -726,7 +726,7 @@ function Index() {
       {/* CTA FINAL */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <img
-          src={glow.url}
+          src={glow}
           alt=""
           className="absolute inset-0 h-full w-full object-cover opacity-25"
         />
