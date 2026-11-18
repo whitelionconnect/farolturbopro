@@ -296,7 +296,10 @@ function Index() {
       {/* ENTREGA DIGITAL */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <SectionTitle eyebrow="Entrega digital simples e rápida" title="Você não precisa esperar nenhum produto chegar à sua casa!" />
+          <SectionTitle eyebrow="📩 Produto 100% digital" title="Acesso aos seus materiais digitais pelo Google Drive">
+            <p>⚡ Após a confirmação do pagamento, você receberá o acesso aos materiais digitais por meio de um link do Google Drive.</p>
+            <p>📂 Todos os arquivos estarão disponíveis para acesso e download. Não enviamos produtos físicos.</p>
+          </SectionTitle>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: CreditCard, t: "Faça sua compra", d: "Conclua o pagamento com segurança." },
@@ -317,7 +320,7 @@ function Index() {
           <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-primary/40 bg-card p-6 text-center shadow-glow sm:p-8">
             <p className="font-display font-extrabold uppercase text-primary">Importante</p>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Este é um produto 100% digital. A entrega é realizada exclusivamente por meio de links de acesso aos arquivos no Google Drive. Não há envio de produtos físicos.
+              📩 Produto 100% digital: após a confirmação do pagamento, você receberá um link do Google Drive para acessar e baixar todos os materiais. Não enviamos produtos físicos.
             </p>
           </div>
         </div>
