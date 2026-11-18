@@ -31,3 +31,4 @@ use the editor.
 
 - Use the shared consent module for every advertising send; the regional banner and global opt-outs must govern Pixel loading and withdrawal.
 - Initialize the ID-only Meta Pixel once per document from an effect, with one landing-page PageView; do not use an ungated noscript beacon because it bypasses consent.
+- Keep product previews in an isolated component with scoped CSS and a supplied-image manifest; duplicated tracks allow continuous motion without changing other landing sections.

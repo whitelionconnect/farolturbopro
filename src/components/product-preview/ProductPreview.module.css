@@ -1,0 +1,35 @@
+.viewport { overflow: hidden; touch-action: pan-y; cursor: grab; }
+.viewport:active { cursor: grabbing; }
+.track {
+  display: flex;
+  width: max-content;
+  animation: preview-scroll 100s linear infinite;
+  will-change: transform;
+}
+.group { display: flex; align-items: center; gap: 24px; padding-right: 24px; flex-shrink: 0; }
+.image {
+  display: block;
+  height: 400px;
+  width: auto;
+  flex-shrink: 0;
+  max-width: none;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.paused .track, .viewport:focus-visible .track { animation-play-state: paused; }
+@media (hover: hover) { .viewport:hover .track { animation-play-state: paused; } }
+@keyframes preview-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 640px) {
+  .image { height: 310px; }
+  .group { gap: 16px; padding-right: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .viewport { overflow-x: auto; }
+  .track { animation: none; will-change: auto; }
+  .group[aria-hidden="true"] { display: none; }
+  .motionControl { display: none; }
+}
