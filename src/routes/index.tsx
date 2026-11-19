@@ -323,7 +323,7 @@ function Index() {
           <div className="relative animate-rise [animation-delay:150ms]">
             <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
               <img
-                src={hero}
+                src="/hero-antes-depois.png"
                 alt="Comparação de farol amarelado e farol restaurado"
                 className="aspect-[4/3] w-full object-cover"
               />
