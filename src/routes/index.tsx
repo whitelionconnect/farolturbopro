@@ -37,12 +37,12 @@ import bonusChecklist from "@/assets/bonus-checklist.jpg";
 import bonusPlanilha from "@/assets/bonus-planilha.jpg";
 import bonusWhatsapp from "@/assets/bonus-whatsapp.jpg";
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/3br6uum_1309312";
+const CHECKOUT_URL = "https://pay.cakto.com.br/eogo5z3";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Farol Turbo Pro — Aprenda a restaurar faróis | R$ 19,90" },
+      { title: "Farol Turbo Pro — Treinamento completo de restauração de faróis" },
       {
         name: "description",
         content:
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Aprenda a restaurar faróis e transformar essa habilidade em renda. Ebook + 3 bônus por R$ 19,90.",
+          "Aprenda restauração de faróis com 22 videoaulas e materiais práticos. Escolha entre Produtos Digitais ou a Oferta Completa.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -622,150 +622,146 @@ function Index() {
         </div>
       </section>
 
-      {/* BÔNUS */}
-      <section className="border-y border-border bg-secondary py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionTitle
-            eyebrow="Bônus inclusos"
-            title="E não é só o guia. Você também recebe 3 ferramentas para facilitar sua jornada!"
-          >
-            <p>
-              Além de aprender o processo de restauração, você recebe materiais
-              práticos para organizar seus serviços, controlar seus custos e
-              conversar com seus primeiros clientes.
-            </p>
-          </SectionTitle>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-3">
-            {bonuses.map((b, i) => (
-              <div
-                key={b.n}
-                className="animate-rise overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-colors hover:border-primary/40"
-                style={{ animationDelay: `${i * 120}ms` }}
-              >
-                <img src={b.img} alt={b.t} className="w-full object-contain" />
-
-                <div className="p-6 sm:p-7">
-                  <span className="font-display text-sm font-extrabold tracking-widest text-primary">
-                    BÔNUS {b.n}
-                  </span>
-
-                  <h3 className="mt-2 text-xl font-extrabold uppercase leading-tight">
-                    {b.t}
-                  </h3>
-
-                  <p className="mt-2 font-display font-bold text-primary">
-                    {b.highlight}
-                  </p>
-
-                  <p className="mt-3 text-sm text-muted-foreground">{b.d}</p>
-
-                  <ul className="mt-5 space-y-2.5">
-                    {b.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2.5 text-sm"
-                      >
-                        <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success">
-                          <Check className="h-3.5 w-3.5" />
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <p className="mt-5 border-t border-border pt-4 text-sm font-medium text-muted-foreground">
-                    {b.closing}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-14 max-w-3xl rounded-2xl border border-primary/40 bg-card p-8 text-center shadow-glow">
-            <h3 className="text-xl font-extrabold uppercase leading-tight sm:text-2xl">
-              Você aprende a restaurar e ainda recebe ferramentas para colocar o
-              conhecimento em prática.
-            </h3>
-
-            <p className="mt-3 text-muted-foreground">
-              São quatro materiais digitais em uma única oferta: o guia
-              principal e três bônus complementares.
-            </p>
-
-            <p className="mt-6 font-display text-5xl font-extrabold text-primary">
-              R$ 19,90
-            </p>
-
-            <Cta href={CHECKOUT_URL} className="mt-6 w-full sm:w-auto">
-              QUERO RECEBER MEU KIT COMPLETO!
-            </Cta>
-          </div>
-        </div>
-      </section>
-
-      {/* OFERTA */}
+      {/* OFERTAS */}
       <section
         id="oferta"
         className="scroll-mt-16 border-y border-border bg-secondary py-16 sm:py-24"
       >
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 lg:grid-cols-2">
-          <img
-            src={ebook}
-            alt="Ebook Farol Turbo Pro"
-            className="mx-auto w-full max-w-md rounded-2xl shadow-soft"
-          />
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionTitle
+            eyebrow="Escolha sua oferta"
+            title="Aprenda a restaurar faróis e comece com mais estrutura."
+          >
+            <p>
+              Aprenda restauração de faróis e tenha um caminho mais estruturado
+              para começar a oferecer esse serviço.
+            </p>
+          </SectionTitle>
 
-          <div className="rounded-2xl border border-primary/40 bg-card p-8 shadow-glow">
-            <span className="eyebrow">Oferta</span>
+          <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            {/* OFERTA COMPLETA */}
+            <div className="rounded-2xl border border-primary/50 bg-card p-7 shadow-glow sm:p-9">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+                <img
+                  src={ebook}
+                  alt="Ebook Farol Turbo Pro"
+                  className="w-28 shrink-0 rounded-xl shadow-soft"
+                />
+                <div>
+                  <span className="eyebrow">
+                    FAROL TURBO PRO | OFERTA COMPLETA
+                  </span>
+                  <h3 className="mt-3 text-2xl font-extrabold uppercase sm:text-3xl">
+                    Treinamento completo
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Aprenda restauração de faróis e tenha materiais práticos
+                    para começar a oferecer esse serviço.
+                  </p>
+                </div>
+              </div>
 
-            <h2 className="mt-4 text-2xl font-extrabold uppercase sm:text-3xl">
-              Farol Turbo Pro
-            </h2>
+              <div className="mt-8">
+                <p className="font-bold">O que está incluso:</p>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {[
+                    "Treinamento com 22 videoaulas",
+                    "Ebook completo Farol Turbo Pro",
+                    "Checklist de Restauração em 12 Etapas",
+                    "Planilha de Custo por Serviço",
+                    "WhatsApp que Vende — 33 mensagens prontas",
+                    "Kit de Divulgação Farol Turbo Pro",
+                    "Kit Primeiros 10 Clientes",
+                    "Planilha de Prospecção de Clientes",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm">
+                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success">
+                        <Check className="h-3.5 w-3.5" />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <ul className="mt-6 space-y-3">
-              <li className="flex gap-3">
-                <BookOpen className="h-5 w-5 shrink-0 text-primary" />
-                Ebook digital completo
-              </li>
-
-              <li className="flex gap-3">
-                <Gift className="h-5 w-5 shrink-0 text-primary" />
-                3 bônus inclusos
-              </li>
-
-              <li className="flex gap-3">
-                <Sparkles className="h-5 w-5 shrink-0 text-primary" />
-                Acesso imediato após a compra
-              </li>
-            </ul>
-
-            <div className="mt-8 border-t border-border pt-6">
-              <p className="text-sm text-muted-foreground">Pagamento único</p>
-
-              <p className="font-display text-5xl font-extrabold text-primary">
-                R$ 19,90
-              </p>
-            </div>
-
-            <div className="mt-5 flex items-start gap-3 rounded-xl border border-primary/40 bg-primary/5 p-4 text-left">
-              <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
-              <div>
-                <p className="text-sm font-extrabold uppercase">7 dias de garantia</p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  Você tem até 7 dias após a compra para avaliar o material e solicitar o reembolso, conforme as condições da plataforma de pagamento.
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="text-sm text-muted-foreground">Pagamento único</p>
+                <p className="font-display text-5xl font-extrabold text-primary">
+                  R$ 27,00
                 </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Acesso ao material completo
+                </p>
+              </div>
+
+              <Cta
+                href="https://pay.cakto.com.br/eogo5z3"
+                className="mt-6 w-full"
+              >
+                QUERO MEU MATERIAL COMPLETO
+              </Cta>
+
+              <div className="mt-5 flex items-start gap-3 rounded-xl border border-primary/40 bg-primary/5 p-4 text-left">
+                <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
+                <div>
+                  <p className="text-sm font-extrabold uppercase">
+                    7 dias de garantia
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    Comece seu treinamento com tranquilidade e descubra como desenvolver uma nova habilidade para ampliar suas oportunidades profissionais.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <Cta href={CHECKOUT_URL} className="mt-6 w-full">
-              QUERO MEU ACESSO
-            </Cta>
+            {/* PRODUTOS DIGITAIS */}
+            <div className="rounded-2xl border border-border bg-card p-7 sm:p-8">
+              <span className="eyebrow">Produtos digitais</span>
+              <h3 className="mt-4 text-2xl font-extrabold uppercase">
+                Kit Farol Turbo Pro
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Materiais digitais para aprender o processo e organizar seus
+                primeiros serviços.
+              </p>
 
-            <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
-              <Lock className="h-3.5 w-3.5" />
-              Compra segura
-            </p>
+              <div className="mt-8">
+                <p className="font-bold">O que está incluso:</p>
+                <ul className="mt-4 space-y-4">
+                  {[
+                    "Ebook completo Farol Turbo Pro",
+                    "Checklist de Restauração em 12 Etapas",
+                    "Planilha de Custo por Serviço",
+                    "WhatsApp que Vende — 33 mensagens prontas",
+                    "Kit de Divulgação Farol Turbo Pro",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm">
+                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success">
+                        <Check className="h-3.5 w-3.5" />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="text-sm text-muted-foreground">Pagamento único</p>
+                <p className="font-display text-5xl font-extrabold text-primary">
+                  R$ 17,00
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Materiais digitais
+                </p>
+              </div>
+
+              <Cta
+                href="https://pay.cakto.com.br/3br6uum_1309312"
+                className="mt-6 w-full"
+              >
+                QUERO OS PRODUTOS DIGITAIS
+              </Cta>
+            </div>
           </div>
         </div>
       </section>
@@ -793,14 +789,14 @@ function Index() {
                 n: "02",
                 title: "Receba seu acesso",
                 description:
-                  "Após a confirmação do pagamento, você receberá um link para acessar os materiais pelo Google Drive.",
+                  "Após a confirmação do pagamento, você receberá acesso aos arquivos pelo Google Drive. Na Oferta Completa, as 22 videoaulas ficam disponíveis pela área de membros da Cakto Members.",
               },
               {
                 icon: Download,
                 n: "03",
                 title: "Acesse seus arquivos",
                 description:
-                  "Abra os links, visualize os materiais e faça o download dos arquivos disponibilizados.",
+                  "Acesse os materiais digitais pelo Google Drive. Se você adquiriu a Oferta Completa, também poderá acessar as videoaulas pela Cakto Members.",
               },
               {
                 icon: Rocket,
@@ -846,8 +842,9 @@ function Index() {
               </h3>
 
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                A entrega é realizada exclusivamente por meio de links de
-                acesso aos arquivos no Google Drive. Não há envio de produtos
+                A entrega é digital: os materiais em arquivo são disponibilizados pelo
+                Google Drive. Na Oferta Completa, as 22 videoaulas são acessadas
+                pela área de membros da Cakto Members. Não há envio de produtos
                 físicos.
               </p>
             </div>
@@ -882,16 +879,16 @@ function Index() {
               </AccordionItem>
 
               <AccordionItem value="faq-3">
-                <AccordionTrigger className="text-primary hover:text-primary">Quantas páginas tem o material?</AccordionTrigger>
+                <AccordionTrigger className="text-primary hover:text-primary">Qual é a diferença entre as duas ofertas?</AccordionTrigger>
                 <AccordionContent>
-                  O ebook principal possui 32 páginas. Além dele, você recebe três bônus digitais complementares: Checklist de Restauração, Planilha de Custo por Serviço e WhatsApp que Vende.
+                  A oferta Produtos Digitais, por R$ 17,00, inclui cinco materiais: ebook, Checklist de Restauração, Planilha de Custo por Serviço, WhatsApp que Vende e Kit de Divulgação. Já a Oferta Completa, por R$ 27,00, inclui esses materiais, mais 22 videoaulas, Kit Primeiros 10 Clientes e Planilha de Prospecção de Clientes.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-4">
                 <AccordionTrigger className="text-primary hover:text-primary">Como recebo o produto depois da compra?</AccordionTrigger>
                 <AccordionContent>
-                  Após a confirmação do pagamento, você recebe as orientações e o link de acesso aos arquivos digitais pelo Google Drive.
+                  Após a confirmação do pagamento, os arquivos digitais são disponibilizados pelo Google Drive. Na Oferta Completa, você também recebe acesso às 22 videoaulas pela área de membros da Cakto Members.
                 </AccordionContent>
               </AccordionItem>
 
@@ -937,7 +934,7 @@ function Index() {
           </h2>
 
           <p className="mt-4 text-muted-foreground">
-            Ebook digital + 3 bônus por apenas R$ 19,90.
+            Treinamento com 22 videoaulas + ebook e materiais práticos por apenas R$ 27,00.
           </p>
 
           <div className="mx-auto mt-8 flex max-w-xl items-center gap-3 rounded-2xl border border-primary/40 bg-card/80 p-5 text-left">
@@ -947,7 +944,7 @@ function Index() {
                 Sua compra está protegida
               </h3>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Você tem 7 dias após a compra para avaliar o FAROL TURBO PRO e solicitar o reembolso, conforme as condições da garantia.
+                Sua compra conta com 7 dias de garantia para você começar sua jornada com mais tranquilidade.
               </p>
             </div>
           </div>
