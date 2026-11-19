@@ -641,24 +641,17 @@ function Index() {
           <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             {/* OFERTA COMPLETA */}
             <div className="rounded-2xl border border-primary/50 bg-card p-7 shadow-glow sm:p-9">
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-                <img
-                  src={ebook}
-                  alt="Ebook Farol Turbo Pro"
-                  className="w-28 shrink-0 rounded-xl shadow-soft"
-                />
-                <div>
-                  <span className="eyebrow">
-                    FAROL TURBO PRO | OFERTA COMPLETA
-                  </span>
-                  <h3 className="mt-3 text-2xl font-extrabold uppercase sm:text-3xl">
-                    Treinamento completo
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    Aprenda restauração de faróis e tenha materiais práticos
-                    para começar a oferecer esse serviço.
-                  </p>
-                </div>
+              <div>
+                <span className="eyebrow">
+                  FAROL TURBO PRO | OFERTA COMPLETA
+                </span>
+                <h3 className="mt-3 text-2xl font-extrabold uppercase sm:text-3xl">
+                  Treinamento completo
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Com seu primeiro serviço, você já pode faturar até 5x
+                  o valor investido neste treinamento! 🚀
+                </p>
               </div>
 
               <div className="mt-8">
@@ -721,8 +714,9 @@ function Index() {
                 Kit Farol Turbo Pro
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Materiais digitais para aprender o processo e organizar seus
-                primeiros serviços.
+                Com este kit de ebooks e planilhas práticas, você já pode
+                começar a oferecer seus serviços de restauração de faróis e
+                começar a fazer uma renda extra! 🚀
               </p>
 
               <div className="mt-8">
