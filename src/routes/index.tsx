@@ -311,12 +311,6 @@ function Index() {
 
             <div className="mt-8 flex flex-col items-start gap-3">
               <Cta href={CHECKOUT_URL} className="w-full sm:w-auto" />
-              <p className="text-sm text-muted-foreground">
-                Ebook digital + 3 bônus |{" "}
-                <strong className="font-display text-foreground">
-                  R$ 19,90
-                </strong>
-              </p>
             </div>
           </div>
 
