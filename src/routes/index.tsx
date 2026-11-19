@@ -1,5 +1,6 @@
 
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ProductPreview } from "@/components/product-preview/ProductPreview";
@@ -8,7 +9,6 @@ import {
   BadgeDollarSign,
   BookOpen,
   Check,
-  CircleHelp,
   CreditCard,
   Download,
   FolderDown,
@@ -21,15 +21,12 @@ import {
   Rocket,
   Search,
   ShieldCheck,
-  ShieldOff,
   Sparkles,
   TriangleAlert,
   Wrench,
-  XCircle,
 } from "lucide-react";
 
 import hero from "@/assets/hero.jpg";
-import compare from "@/assets/compare.jpg";
 import pro from "@/assets/pro.jpg";
 import polish from "@/assets/polish.jpg";
 import pricing from "@/assets/pricing.jpg";
@@ -116,28 +113,20 @@ function SectionTitle({
 }
 
 function Index() {
-  const problems = [
-    {
-      icon: CircleHelp,
-      t: "Falta de conhecimento",
-      d: "Não sabe quais materiais utilizar nem qual sequência seguir.",
-    },
-    {
-      icon: XCircle,
-      t: "Resultado insatisfatório",
-      d: "Já tentou receitas caseiras ou procedimentos improvisados e não gostou do resultado.",
-    },
-    {
-      icon: ShieldOff,
-      t: "Falta de proteção",
-      d: "Não entende como proteger corretamente a lente depois da restauração.",
-    },
-    {
-      icon: BadgeDollarSign,
-      t: "Insegurança comercial",
-      d: "Não sabe quanto cobrar ou como apresentar o serviço para um cliente.",
-    },
-  ];
+  const [weeklyServices, setWeeklyServices] = useState(5);
+  const [servicePrice, setServicePrice] = useState(250);
+  const [serviceCost, setServiceCost] = useState(50);
+
+  const monthlyRevenue = weeklyServices * 4 * servicePrice;
+  const monthlyCosts = weeklyServices * 4 * serviceCost;
+  const monthlyResult = monthlyRevenue - monthlyCosts;
+
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      maximumFractionDigits: 0,
+    }).format(value);
 
   const steps = [
     {
@@ -339,37 +328,45 @@ function Index() {
       {/* CARROSSEL DE PRODUTOS */}
       <ProductPreview />
 
-      {/* PROBLEMA */}
+      {/* PARA QUEM É */}
       <section className="border-y border-border bg-secondary py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <SectionTitle title="Você não precisa apenas saber polir. Precisa saber fazer do jeito certo.">
-            <p>
-              Um farol amarelado, fosco ou oxidado compromete a aparência do
-              veículo e pode afetar a iluminação. Mas tentar recuperar uma
-              lente sem conhecer o processo pode gerar marcas, manchas e
-              acabamentos irregulares.
-            </p>
-          </SectionTitle>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-            <img
-              src={compare}
-              alt="Lente oxidada ao lado de lente restaurada"
-              className="w-full rounded-2xl border border-border object-cover shadow-soft"
-            />
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {problems.map(({ icon: I, t, d }) => (
-                <div
-                  key={t}
-                  className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
-                >
-                  <I className="h-7 w-7 text-primary" />
-                  <h3 className="mt-4 font-bold">{t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-                </div>
-              ))}
-            </div>
+          <SectionTitle
+            eyebrow="Para quem é o Farol Turbo Pro?"
+            title="Uma habilidade prática para quem quer sair da intenção e começar a construir uma nova oportunidade de renda."
+          />
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                icon: BookOpen,
+                title: "Quem está começando do zero",
+                description:
+                  "Nunca restaurou um farol? Aprenda desde os fundamentos, conheça os materiais e siga uma sequência organizada para desenvolver essa habilidade.",
+              },
+              {
+                icon: Wrench,
+                title: "Profissionais do setor automotivo",
+                description:
+                  "Já trabalha com estética, lavagem ou mecânica? Aprenda um novo serviço para ampliar seu portfólio e oferecer mais soluções aos seus clientes.",
+              },
+              {
+                icon: BadgeDollarSign,
+                title: "Quem busca uma renda extra",
+                description:
+                  "Quer aproveitar o tempo livre para desenvolver uma nova atividade? Aprenda a executar o serviço, calcular seus custos e divulgar seu trabalho.",
+              },
+            ].map(({ icon: I, title, description }) => (
+              <div
+                key={title}
+                className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
+              >
+                <I className="h-8 w-8 text-primary" />
+                <h3 className="mt-4 font-bold">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -410,6 +407,138 @@ function Index() {
               começar entendendo o processo, os materiais e os cuidados
               necessários.
             </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* CALCULADORA DE FATURAMENTO */}
+      <section className="border-y border-border bg-secondary py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionTitle
+            eyebrow="Faça sua simulação"
+            title="Descubra o potencial financeiro de oferecer restauração de faróis."
+          >
+            <p>
+              Ajuste os valores e veja uma simulação de faturamento e custos
+              com a prestação desse serviço.
+            </p>
+          </SectionTitle>
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-[1fr_0.9fr]">
+            <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+              <div className="space-y-8">
+                <div>
+                  <div className="flex items-center justify-between gap-4">
+                    <label htmlFor="weekly-services" className="font-semibold">
+                      Faróis restaurados por semana
+                    </label>
+                    <span className="font-display text-xl font-bold text-primary">
+                      <output id="weekly-services-value">{weeklyServices}</output>
+                    </span>
+                  </div>
+                  <input
+                    id="weekly-services"
+                    type="range"
+                    min="1"
+                    max="30"
+                    step="1"
+                    value={weeklyServices}
+                    onChange={(event) => setWeeklyServices(Number(event.target.value))}
+                    className="mt-4 w-full accent-primary"
+                  />
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
+                    <span>1 farol</span>
+                    <span>30 faróis</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between gap-4">
+                    <label htmlFor="service-price" className="font-semibold">
+                      Preço cobrado por farol
+                    </label>
+                    <span className="font-display text-xl font-bold text-primary">
+                      <output id="service-price-value">{formatCurrency(servicePrice)}</output>
+                    </span>
+                  </div>
+                  <input
+                    id="service-price"
+                    type="range"
+                    min="100"
+                    max="500"
+                    step="10"
+                    value={servicePrice}
+                    onChange={(event) => setServicePrice(Number(event.target.value))}
+                    className="mt-4 w-full accent-primary"
+                  />
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
+                    <span>R$ 100</span>
+                    <span>R$ 500</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between gap-4">
+                    <label htmlFor="service-cost" className="font-semibold">
+                      Custo estimado por farol
+                    </label>
+                    <span className="font-display text-xl font-bold text-primary">
+                      <output id="service-cost-value">{formatCurrency(serviceCost)}</output>
+                    </span>
+                  </div>
+                  <input
+                    id="service-cost"
+                    type="range"
+                    min="0"
+                    max="200"
+                    step="5"
+                    value={serviceCost}
+                    onChange={(event) => setServiceCost(Number(event.target.value))}
+                    className="mt-4 w-full accent-primary"
+                  />
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
+                    <span>R$ 0</span>
+                    <span>R$ 200</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+              <span className="eyebrow">Sua simulação mensal</span>
+              <div className="mt-6 space-y-5">
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Faturamento bruto estimado
+                  </p>
+                  <p id="monthly-revenue" className="mt-1 font-display text-3xl font-extrabold text-primary">
+                    {formatCurrency(monthlyRevenue)}
+                  </p>
+                </div>
+                <div className="border-t border-border pt-5">
+                  <p className="text-sm text-muted-foreground">
+                    Custos estimados
+                  </p>
+                  <p id="monthly-costs" className="mt-1 font-display text-2xl font-bold">
+                    {formatCurrency(monthlyCosts)}
+                  </p>
+                </div>
+                <div className="border-t border-border pt-5">
+                  <p className="text-sm text-muted-foreground">
+                    Resultado após custos estimados
+                  </p>
+                  <p id="monthly-result" className="mt-1 font-display text-3xl font-extrabold text-primary">
+                    {formatCurrency(monthlyResult)}
+                  </p>
+                </div>
+              </div>
+              <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+                Simulação ilustrativa considerando quatro semanas por mês.
+                Os valores não representam garantia de faturamento ou lucro.
+                Os resultados reais dependem da demanda, dos preços praticados,
+                dos materiais, impostos e demais despesas.
+              </p>
+            </div>
           </div>
         </div>
       </section>
