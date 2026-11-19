@@ -279,7 +279,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-20">
           <div className="animate-rise">
             <span className="eyebrow">
-              Guia prático de restauração automotiva
+              Aprenda restauração de faróis para oferecer esse serviço
             </span>
 
             <h1 className="mt-5 text-3xl font-extrabold uppercase leading-[1.1] sm:text-5xl">
@@ -289,9 +289,10 @@ function Index() {
             </h1>
 
             <p className="mt-5 text-muted-foreground sm:text-lg">
-              Aprenda o processo de diagnóstico, lixamento, polimento e
-              proteção UV. Descubra também como calcular seus preços e
-              conquistar os primeiros clientes, mesmo começando do zero.
+              Aprenda a avaliar a lente e siga a sequência de lixamento,
+              polimento e proteção UV. Depois, calcule o custo de cada serviço
+              e saiba como apresentar seu trabalho a potenciais clientes,
+              mesmo começando do zero.
             </p>
 
             <ul className="mt-6 space-y-3">
