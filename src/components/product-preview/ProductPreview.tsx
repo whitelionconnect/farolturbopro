@@ -34,7 +34,7 @@ export function ProductPreview() {
   function endDrag() { drag.current = null; setDragging(false); }
 
   return (
-    <section aria-labelledby="product-preview-title" className="overflow-hidden border-y border-border bg-secondary py-16 sm:py-24">
+    <section id="product-preview" aria-labelledby="product-preview-title" className="scroll-mt-20 overflow-hidden border-y border-border bg-secondary py-16 sm:py-24">
       <div className="mx-auto max-w-3xl px-4 text-center">
         <h2 id="product-preview-title" className="text-2xl font-extrabold uppercase leading-tight sm:text-4xl">Veja por dentro tudo o que você vai receber!</h2>
         <p className="mt-5 text-muted-foreground sm:text-lg">Conheça os materiais, ferramentas e conteúdos que fazem parte do Farol Turbo Pro.</p>
@@ -64,7 +64,7 @@ export function ProductPreview() {
           {[false, true].map((duplicate) => (
             <div key={String(duplicate)} className={styles["group"]} aria-hidden={duplicate || undefined}>
               {productPreviewImages.map((image) => (
-                <img key={image.src} src={image.src} alt={duplicate ? "" : image.alt} width={image.width} height={image.height} className={styles["image"]} draggable={false} decoding="async" />
+                <img key={image.src} src={image.src} alt={duplicate ? "" : image.alt} width={image.width} height={image.height} className={styles["image"]} draggable={false} loading="lazy" decoding="async" />
               ))}
             </div>
           ))}

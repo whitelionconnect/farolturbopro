@@ -1,12 +1,12 @@
 
-import whatsapp from "@/assets/product-preview/whatsapp-cover.png";
-import checklist from "@/assets/product-preview/checklist-cover.png";
-import visibility from "@/assets/product-preview/visibility-page.png";
-import materials from "@/assets/product-preview/materials-page.png";
-import clients from "@/assets/product-preview/clients-page.png";
-import sheet from "@/assets/product-preview/cost-sheet.png";
-import cost from "@/assets/product-preview/cost-cover.png";
-import sales from "@/assets/product-preview/sales-page.png";
+import whatsapp from "@/assets/product-preview/whatsapp-cover.webp";
+import checklist from "@/assets/product-preview/checklist-cover.webp";
+import visibility from "@/assets/product-preview/visibility-page.webp";
+import materials from "@/assets/product-preview/materials-page.webp";
+import clients from "@/assets/product-preview/clients-page.webp";
+import sheet from "@/assets/product-preview/cost-sheet.webp";
+import cost from "@/assets/product-preview/cost-cover.webp";
+import sales from "@/assets/product-preview/sales-page.webp";
 
 // Actual supplied covers and pages, in display order.
 export const productPreviewImages = [
@@ -17,5 +17,5 @@ export const productPreviewImages = [
   { src: cost, alt: "Capa da Planilha de Custo por Serviço", width: 1024, height: 1536 },
   { src: sheet, alt: "Prévia da planilha de custo por serviço", width: 625, height: 1041 },
   { src: clients, alt: "Página interna sobre onde encontrar os primeiros clientes", width: 1008, height: 1421 },
-  { src: sales, alt: "Página interna sobre apresentação e venda do serviço", width: 768, height: 1080 },
+  { src: sales, alt: "Página interna sobre apresentação e venda do serviço", width: 981, height: 1378 },
 ];
