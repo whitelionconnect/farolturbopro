@@ -584,6 +584,21 @@ function Index() {
         </div>
       </section>
 
+
+      {/* ANTES E DEPOIS */}
+      <section className="border-y border-border bg-secondary py-12 sm:py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <span className="eyebrow">Demonstração visual</span>
+            <h2 className="mt-3 text-2xl font-extrabold uppercase leading-tight sm:text-3xl">Veja a diferença entre um farol desgastado e um farol restaurado.</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">A imagem ilustra o tipo de transformação que o processo busca alcançar. O resultado depende das condições da lente, dos materiais e da execução.</p>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
+            <img src="/hero-antes-depois.png" alt="Comparação visual de farol antes e depois da restauração" className="w-full object-cover" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
+
       {/* O QUE VAI APRENDER */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
@@ -624,6 +639,36 @@ function Index() {
         </div>
       </section>
 
+
+      {/* BÔNUS */}
+      <section className="border-y border-border bg-secondary py-14 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="max-w-3xl">
+            <span className="eyebrow">Materiais extras incluídos</span>
+            <h2 className="mt-3 text-2xl font-extrabold uppercase leading-tight sm:text-4xl">Cinco bônus para apoiar a aplicação do que você aprende.</h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">Materiais de consulta e organização que complementam o treinamento principal.</p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {[
+              { n: "01", title: "Checklist de Restauração em 12 Etapas", desc: "Um roteiro visual para acompanhar as etapas do serviço." },
+              { n: "02", title: "Planilha de Custo por Serviço", desc: "Organize materiais, gastos e valores de cada restauração." },
+              { n: "03", title: "WhatsApp que Vende: 33 mensagens prontas", desc: "Modelos de mensagens para conversar com interessados e enviar orçamentos." },
+              { n: "04", title: "Kit Primeiros 10 Clientes", desc: "Material de apoio para organizar os primeiros contatos e a divulgação." },
+              { n: "05", title: "Planilha de Prospecção de Clientes", desc: "Registre contatos e acompanhe oportunidades de atendimento." },
+            ].map((bonus) => (
+              <article key={bonus.n} className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 sm:p-5">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 font-display font-extrabold text-primary">{bonus.n}</span>
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-wide text-primary">BÔNUS {bonus.n}</p>
+                  <h3 className="mt-1 font-extrabold">{bonus.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{bonus.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* OFERTA ÚNICA */}
       <section
         id="oferta"
@@ -641,7 +686,15 @@ function Index() {
           </SectionTitle>
 
           <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-primary/50 bg-card p-7 shadow-glow sm:p-9">
-            <div className="text-center">
+            <div className="mb-6 flex items-center justify-center gap-4 rounded-xl bg-secondary p-4 sm:gap-6">
+              <img src={ebook} alt="Ebook Farol Turbo Pro incluído na oferta" className="h-28 w-auto rounded-md object-contain sm:h-36" loading="lazy" decoding="async" />
+              <div className="text-left">
+                <p className="text-xs font-extrabold uppercase tracking-wide text-primary">Combo completo</p>
+                <p className="mt-1 font-display text-lg font-extrabold uppercase sm:text-xl">Treinamento + materiais</p>
+                <p className="mt-1 text-xs text-muted-foreground">22 videoaulas, ebook e 5 bônus digitais</p>
+              </div>
+            </div>
+            <div className="text-left">
               <span className="eyebrow">FAROL TURBO PRO | ACESSO COMPLETO</span>
               <h3 className="mt-3 text-2xl font-extrabold uppercase sm:text-3xl">
                 Treinamento completo + materiais
@@ -653,7 +706,7 @@ function Index() {
             </div>
 
             <div className="mt-8">
-              <p className="text-center font-bold">Você recebe:</p>
+              <p className="text-left font-bold">Você recebe:</p>
               <ul className="mt-4 flex flex-col gap-3">
                 {[
                   "Treinamento completo com 22 videoaulas",
