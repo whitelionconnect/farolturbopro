@@ -662,7 +662,7 @@ function Index() {
                   "BÔNUS 4 — Kit Primeiros 10 Clientes",
                   "BÔNUS 5 — Planilha de Prospecção de Clientes",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm">
+                  <li key={item} className="flex items-start gap-3 text-base sm:text-lg">
                     <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success">
                       <Check className="h-3.5 w-3.5" />
                     </span>
