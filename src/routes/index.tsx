@@ -116,6 +116,12 @@ function Index() {
   const [weeklyServices, setWeeklyServices] = useState(5);
   const [servicePrice, setServicePrice] = useState(250);
   const [serviceCost, setServiceCost] = useState(50);
+  const [headlineModel, setHeadlineModel] = useState<"inventario" | "dominio" | "descoberta">("dominio");
+  const headlines = {
+    inventario: <>Tenha 22 videoaulas e materiais práticos para aprender a <span className="text-primary">restaurar faróis.</span></>,
+    dominio: <>Aprenda a restaurar faróis e transforme essa habilidade em um <span className="text-primary">novo serviço.</span></>,
+    descoberta: <>Descubra uma sequência organizada para restaurar faróis, mesmo que você esteja <span className="text-primary">começando do zero.</span></>,
+  };
 
   const monthlyRevenue = weeklyServices * 4 * servicePrice;
   const monthlyCosts = weeklyServices * 4 * serviceCost;
@@ -263,9 +269,19 @@ function Index() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-5 px-4 sm:gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
           <div className="animate-rise text-left">
             <span className="eyebrow">Treinamento digital • Do básico à aplicação</span>
+            <div className="mb-3 flex flex-wrap gap-1.5" aria-label="Testar modelos de headline">
+              {[
+                { id: "inventario", label: "Inventário" },
+                { id: "dominio", label: "Domínio" },
+                { id: "descoberta", label: "Descoberta" },
+              ].map((model) => (
+                <button key={model.id} type="button" onClick={() => setHeadlineModel(model.id as typeof headlineModel)} aria-pressed={headlineModel === model.id} className={headlineModel === model.id ? "rounded-full border border-primary bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-primary-foreground sm:text-xs" : "rounded-full border border-border px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-muted-foreground sm:text-xs"}>
+                  {model.label}
+                </button>
+              ))}
+            </div>
             <h1 className="mt-3 text-[clamp(1.8rem,5vw,3.45rem)] font-extrabold uppercase leading-[1.04]">
-              Aprenda a restaurar faróis e transforme essa habilidade em um{" "}
-              <span className="text-primary">novo serviço.</span>
+              {headlines[headlineModel]}
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-base">
               Siga um caminho organizado: diagnóstico, lixamento, polimento,
