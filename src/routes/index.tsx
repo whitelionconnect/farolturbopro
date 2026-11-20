@@ -652,7 +652,7 @@ function Index() {
 
             <div className="mt-8">
               <p className="text-center font-bold">Você recebe:</p>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-4 flex flex-col gap-3">
                 {[
                   "Treinamento completo com 22 videoaulas",
                   "Ebook completo Farol Turbo Pro",
