@@ -242,91 +242,93 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
-          <a
-            href="#"
-            className="truncate font-display text-lg font-extrabold tracking-tight sm:text-xl"
-          >
+      <div className="border-b border-primary/20 bg-primary px-3 py-2 text-center text-xs font-extrabold uppercase tracking-wide text-primary-foreground sm:text-sm">
+        ACESSO COMPLETO FAROL TURBO PRO • 22 VIDEOAULAS + EBOOK + 5 BÔNUS • R$ 19,90
+      </div>
+      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:h-16">
+          <a href="#" className="truncate font-display text-lg font-extrabold tracking-tight sm:text-xl">
             FAROL <span className="text-primary">TURBO PRO</span>
           </a>
-
-          <a
-            href={CHECKOUT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-cta shrink-0 px-4 py-2 text-xs sm:px-5 sm:text-sm"
-          >
-            QUERO APRENDER
+          <a href="#product-preview" className="shrink-0 rounded-lg border border-primary px-4 py-2 text-xs font-extrabold text-primary transition-colors hover:bg-primary/10 sm:text-sm">
+            VER O CONTEÚDO
           </a>
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-20">
-          <div className="animate-rise">
-            <span className="eyebrow">
-              Aprenda restauração de faróis para oferecer esse serviço
-            </span>
-
-            <h1 className="mt-5 text-3xl font-extrabold uppercase leading-[1.1] sm:text-5xl">
-              Aprenda a restaurar faróis e descubra como transformar essa
-              habilidade em uma{" "}
-              <span className="text-primary">oportunidade de renda!</span>
+      {/* HERO / PRIMEIRA DOBRA */}
+      <section className="relative flex min-h-[calc(100svh-7.5rem)] items-center overflow-hidden py-5 sm:py-8">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-5 px-4 sm:gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
+          <div className="animate-rise text-left">
+            <span className="eyebrow">Treinamento digital • Do básico à aplicação</span>
+            <h1 className="mt-3 text-[clamp(1.8rem,5vw,3.45rem)] font-extrabold uppercase leading-[1.04]">
+              Aprenda a restaurar faróis e transforme essa habilidade em um{" "}
+              <span className="text-primary">novo serviço.</span>
             </h1>
-
-            <p className="mt-5 text-muted-foreground sm:text-lg">
-              Aprenda a avaliar a lente e siga a sequência de lixamento,
-              polimento e proteção UV. Depois, calcule o custo de cada serviço
-              e saiba como apresentar seu trabalho a potenciais clientes,
-              mesmo começando do zero.
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-base">
+              Siga um caminho organizado: diagnóstico, lixamento, polimento,
+              proteção UV e noções para calcular custos e apresentar seu trabalho.
             </p>
-
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-4 grid gap-2 text-sm sm:mt-5 sm:text-base">
               {[
-                "Aprenda as etapas de restauração.",
-                "Conheça os materiais necessários.",
-                "Descubra como precificar e divulgar o serviço.",
-              ].map((b) => (
-                <li key={b} className="flex items-center gap-3">
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-success/15 text-success">
-                    <Check className="h-4 w-4" />
+                "22 videoaulas para acompanhar o processo.",
+                "Ebook Farol Turbo Pro para consultar os conteúdos.",
+                "5 bônus práticos para organizar custos e buscar clientes.",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success">
+                    <Check className="h-3.5 w-3.5" />
                   </span>
-                  {b}
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
-
-            <div className="mt-8 flex flex-col items-start gap-3">
-              <Cta href={CHECKOUT_URL} className="w-full sm:w-auto" />
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <a href="#product-preview" className="btn-cta px-6 py-3 text-sm">
+                VER POR DENTRO DO TREINAMENTO <ArrowRight className="h-4 w-4" />
+              </a>
+              <span className="text-xs text-muted-foreground">Conheça os materiais antes de decidir</span>
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
+              <span className="rounded-full border border-border px-3 py-1">Acesso digital</span>
+              <span className="rounded-full border border-border px-3 py-1">Pagamento único</span>
+              <span className="rounded-full border border-border px-3 py-1">7 dias de garantia</span>
             </div>
           </div>
-
-          <div className="relative animate-rise [animation-delay:150ms]">
-            <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
-              <img
-                src="/hero-antes-depois.png"
-                alt="Comparação de farol amarelado e farol restaurado"
-                className="aspect-[4/3] w-full object-cover"
-              />
+          <div className="relative mx-auto flex w-full max-w-sm items-center justify-center animate-rise [animation-delay:120ms] lg:max-w-md">
+            <div className="absolute inset-x-8 top-8 h-3/4 rounded-full bg-primary/15 blur-3xl" />
+            <div className="relative w-full rounded-2xl border border-primary/30 bg-card p-3 shadow-glow sm:p-5">
+              <img src={ebook} alt="Capa do ebook Farol Turbo Pro" className="mx-auto max-h-[clamp(9rem,28vh,19rem)] w-auto rounded-lg object-contain drop-shadow-2xl" fetchPriority="high" />
+              <div className="mt-3 rounded-xl bg-secondary p-3 text-center">
+                <p className="font-display text-sm font-extrabold uppercase sm:text-base">Farol Turbo Pro</p>
+                <p className="mt-1 text-xs text-muted-foreground">Treinamento + ebook + cinco bônus</p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <span className="absolute left-4 top-4 rounded-md bg-destructive px-3 py-1 font-display text-xs font-bold">
-              ANTES
-            </span>
-
-            <span className="absolute right-4 top-4 rounded-md bg-success px-3 py-1 font-display text-xs font-bold text-primary-foreground">
-              DEPOIS
-            </span>
-
+      {/* DOR / AGITAÇÃO */}
+      <section className="border-y border-border bg-secondary py-12 sm:py-16">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+          <div>
+            <span className="eyebrow">Você reconhece essa situação?</span>
+            <h2 className="mt-3 text-2xl font-extrabold uppercase leading-tight sm:text-3xl">
+              Faróis amarelados chamam atenção. Mas você sabe por onde começar a recuperar uma lente?
+            </h2>
+          </div>
+          <div className="space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p>Sem conhecer a sequência correta, é fácil ficar em dúvida sobre os materiais, as etapas de lixamento, o polimento e a proteção final.</p>
+            <p>E mesmo aprendendo a parte prática, ainda surgem outras perguntas: quanto cobrar, como calcular os custos e como explicar o serviço ao cliente?</p>
+            <p className="font-semibold text-foreground">O Farol Turbo Pro reúne o conteúdo técnico e materiais de apoio para você estudar esses pontos em uma sequência organizada.</p>
           </div>
         </div>
       </section>
 
       {/* CARROSSEL DE PRODUTOS */}
-      <ProductPreview />
+      <div id="product-preview" className="scroll-mt-20"><ProductPreview /></div>
 
       {/* PARA QUEM É */}
       <section className="border-y border-border bg-secondary py-16 sm:py-24">
@@ -547,8 +549,8 @@ function Index() {
       <section className="border-y border-border bg-secondary py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <SectionTitle
-            eyebrow="O método"
-            title="Do primeiro diagnóstico à possibilidade de oferecer seu primeiro serviço."
+            eyebrow="Mecanismo de aprendizagem"
+            title="Entenda a sequência: recuperar, proteger e preparar para oferecer o serviço."
           />
 
           <div className="relative mt-12 grid gap-6 md:grid-cols-3">
@@ -586,8 +588,8 @@ function Index() {
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <SectionTitle
-            eyebrow="Conteúdo do guia"
-            title="Um guia completo para entender a restauração de faróis."
+            eyebrow="Benefícios e conteúdo"
+            title="Aprenda as etapas e entenda o que observar em cada serviço."
           />
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -885,7 +887,7 @@ function Index() {
             </div>
           </div>
 
-          <Cta href={CHECKOUT_URL} className="mt-8" />
+          <Cta href="#oferta" className="mt-8">VER A OFERTA COMPLETA</Cta>
         </div>
       </section>
 
